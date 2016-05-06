@@ -3,6 +3,7 @@ A very simple appengine application
 
 
 ## Getting Started
+- make sure you're using Java 7
 - install the Google Cloud SDK https://cloud.google.com/sdk/
 - install java appengine components
 ```
