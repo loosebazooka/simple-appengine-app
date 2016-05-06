@@ -25,14 +25,6 @@ dependencies {
   compile 'javax.servlet:servlet-api:2.5'
 }
 
-model {
-  gcpApp {
-    tools {
-      cloudSdkHome "${project.cloudSdkHome}" // configure this correctly
-    }
-  }
-}
-
 task wrapper(type: Wrapper) {
   gradleVersion = "2.12"
 }
