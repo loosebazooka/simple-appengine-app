@@ -15,10 +15,16 @@ git clone https://github.com/loosebazooka/simple-appengine-app
 ```
 
 ### Gradle
-- Add a **`gradle.properties`** file in the base directory with the contents so the build.gradle can resolve the value correctly
+- If the plugin is unable to discover the location of the Cloud SDK automatically, specify it in the configuration:
     
     ``` 
-    cloudSdkHome=/path/to/cloud/sdk
+    model {
+      gcpApp {
+        tools {
+          cloudSdkHome = "/path/to/cloud/sdk"
+        }
+      }
+    }
     ```
 - You are now ready to run commands
   - Stage : `./gradlew gcpAppStage`
