@@ -60,7 +60,7 @@
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0-beta</version>
         <configuration>
         </configuration>
       </plugin>
