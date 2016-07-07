@@ -39,7 +39,7 @@ git clone https://github.com/loosebazooka/simple-appengine-app
 <plugin>
     <groupId>com.google.cloud.tools</groupId>
     <artifactId>appengine-maven-plugin</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-beta</version>
     <configuration>
         <cloudSdkPath>/path/to/cloud/sdk</cloudSdkPath>
     </configuration>
