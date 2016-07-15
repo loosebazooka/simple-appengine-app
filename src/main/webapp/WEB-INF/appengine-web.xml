@@ -3,7 +3,6 @@
     <application>test-app</application>
     <version>1</version>
     <threadsafe>true</threadsafe>
-    <module>whatever</module>
 
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
