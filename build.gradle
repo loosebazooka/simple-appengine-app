@@ -28,3 +28,11 @@ dependencies {
 task wrapper(type: Wrapper) {
   gradleVersion = "2.12"
 }
+
+model {
+  appengine {
+    run {
+      jvmFlags = ['-Dappengine.user.timezone=UTC']
+    }
+  }
+}
