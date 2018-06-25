@@ -1,20 +1,6 @@
-buildscript {
-  repositories {
-    jcenter()
-    mavenLocal()
-  }
-  dependencies {
-    classpath "com.google.cloud.tools:appengine-gradle-plugin:2.0.0-SNAPSHOT"
-  }
-}
-
 repositories {
   jcenter();
 }
-
-apply plugin: 'java'
-apply plugin: 'war'
-apply plugin: 'com.google.cloud.tools.appengine'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -23,20 +9,7 @@ dependencies {
   compile 'javax.servlet:javax.servlet-api:3.1.0'
 }
 
-task wrapper(type: Wrapper) {
-  gradleVersion = "4.6"
-}
-
-// 2.0.0-SNAPSHOT config
 appengine {
-  tools {
-    // cloudSdkHome = "path to cloud sdk"
-    // cloudSdkVersion = "some version"
-  }
-  deploy {
-    // version = "1", "GCLOUD_CONFIG", "APPENGINE_CONFIG"
-    // project = "1", "GCLOUD_CONFIG", "APPENGINE_CONFIG"
-  }
   run {
     services = [projectAsService(project), projectAsService(":service2")]
   }
