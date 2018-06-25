@@ -2,6 +2,8 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>test-app</application>
     <version>1</version>
+    <runtime>java8</runtime>
+    <service>service1</service>
     <threadsafe>true</threadsafe>
 
     <system-properties>
