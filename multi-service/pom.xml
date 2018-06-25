@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.loosebazooka</groupId>
+  <artifactId>multi</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>multi</name>
+
+  <modules>
+    <module>service1</module>
+    <module>service2</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.google.cloud.tools</groupId>
+          <artifactId>appengine-maven-plugin</artifactId>
+          <version>2.0.0-SNAPSHOT</version>
+          <configuration>
+
+            <!-- CLOUDSDK VARIATIONS -->
+
+            <!--
+            <cloudSdkVersion>200.0.0</cloudSdkVersion>
+            -->
+            <!--
+            <cloudSdkHome>/path/to/google-cloud-sdk</cloudSdkHome>
+            <cloudSdkVersion>200.0.0</cloudSdkVersion>
+            -->
+
+
+            <!-- DEPLOYMENT VARIATIONS -->
+            <!--
+            <project>APPENGINE_CONFIG</project>
+            <version>APPENGINE_CONFIG</version>
+            -->
+            <project>GCLOUD_CONFIG</project>
+            <version>GCLOUD_CONFIG</version>
+            <!--
+            <project>some-project</project>
+            <version>1</version>
+            -->
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
