@@ -4,7 +4,7 @@ buildscript {
     mavenLocal()
   }
   dependencies {
-    classpath "com.google.cloud.tools:appengine-gradle-plugin:1.3.1"
+    classpath "com.google.cloud.tools:appengine-gradle-plugin:2.0.0-SNAPSHOT"
   }
 }
 
@@ -27,14 +27,17 @@ task wrapper(type: Wrapper) {
   gradleVersion = "4.6"
 }
 
-// 2.0.0-SNAPSHOT config
 appengine {
   tools {
-    // cloudSdkHome = "path to cloud sdk"
-    // cloudSdkVersion = "some version"
+    // cloudSdkHome = "/path/to/google-cloud-sdk"
+    // cloudSdkVersion = "200.0.0"
   }
   deploy {
-    // version = "1", "GCLOUD_CONFIG", "APPENGINE_CONFIG"
-    // project = "1", "GCLOUD_CONFIG", "APPENGINE_CONFIG"
+    // version = "1"
+    // project = "1"
+    version = "GCLOUD_CONFIG"
+    project = "GCLOUD_CONFIG"
+    // version = "APPENGINE_CONFIG"
+    // project = "APPENGINE_CONFIG"
   }
 }
