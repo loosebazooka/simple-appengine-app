@@ -8,3 +8,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 dependencies {
   compile 'javax.servlet:javax.servlet-api:3.1.0'
 }
+
+appengineRun.enabled = false;
+appengineStart.enabled = false;
+appengineStop.enabled = false;
