@@ -1,14 +1,15 @@
 buildscript {
   repositories {
+    mavenLocal()
     jcenter()
   }
   dependencies {
-    classpath "com.google.cloud.tools:appengine-gradle-plugin:2.0.0-rc1"
+    classpath "com.google.cloud.tools:appengine-gradle-plugin:2.0.0-SNAPSHOT"
   }
 }
 
-task wrapper(type: Wrapper) {
-  gradleVersion = "4.6"
+wrapper {
+  gradleVersion = "4.10.2"
 }
 
 subprojects {
@@ -23,11 +24,11 @@ subprojects {
     }
     deploy {
       // version = "1"
-      // project = "1"
+      // projectId = "some-project"
       version = "GCLOUD_CONFIG"
-      project = "GCLOUD_CONFIG"
+      projectId = "GCLOUD_CONFIG"
       // version = "APPENGINE_CONFIG"
-      // project = "APPENGINE_CONFIG"
+      // projectId = "APPENGINE_CONFIG"
     }
   }
 }

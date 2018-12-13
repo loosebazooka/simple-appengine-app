@@ -1,5 +1,7 @@
 Multi Module Standard Application
 
+Both service1 and service2 contain an `index.html` and a test endpoint at `/test`
+
 Gradle
 - Run (see service1/build.gradle config)
 ```

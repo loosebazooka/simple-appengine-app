@@ -7,17 +7,20 @@
   <version>1.0-SNAPSHOT</version>
 
   <parent>
-    <groupId>com.loosebazooka</groupId>
+    <groupId>com.loosebazooka.test</groupId>
     <artifactId>multi</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.google.standard.demos</groupId>
+  <groupId>com.loosebazooka.test</groupId>
   <artifactId>service2</artifactId>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source> <!-- REQUIRED -->
-    <maven.compiler.target>1.8</maven.compiler.target> <!-- REQUIRED -->
+    <!-- if you change java version here, also make sure it is compatible with <runtime> in appengine-web.xml -->
+    <!--java.version>11</java.version-->
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -32,54 +35,16 @@
   </dependencies>
 
   <build>
-    <!-- For hot reload of the web application when using an IDE Eclipse / IDEA -->
-    <outputDirectory>target/${project.artifactId}-${project.version}/WEB-INF/classes
-    </outputDirectory>
     <plugins>
-      <!-- Work around a performance issue with Maven and Java 7:
-  Maven has a dependency that does a getgrgid for each file.
-  This is very slow for large groups, and not cached.
-  See issue: http://jira.codehaus.org/browse/PLXCOMP-203
--->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-io</artifactId>
-            <version>2.0.5</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
         <configuration>
+          <!-- custom configuration here -->
         </configuration>
       </plugin>
-
     </plugins>
-
   </build>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-     </pluginRepository>
-  </pluginRepositories>
 
 </project>
 

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-    <application>test-app</application>
-    <version>1</version>
-    <runtime>java8</runtime>
-    <service>service2</service>
-    <threadsafe>true</threadsafe>
+  <application>multi-service-projectId</application><!-- overriden in buildfiles -->
+  <version>multi-service-version</version><!-- overriden in buildfiles -->
+  <service>service2</service>
 
-    <system-properties>
-        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-    </system-properties>
+  <!-- java 8 options -->
+  <runtime>java8</runtime>
+  <threadsafe>true</threadsafe>
+
+  <!-- java 11 options
+  <runtime>java11</runtime>
+  -->
+
+  <system-properties>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+  </system-properties>
 </appengine-web-app>

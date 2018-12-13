@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.loosebazooka</groupId>
+  <groupId>com.loosebazooka.test</groupId>
   <artifactId>multi</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -15,9 +15,21 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+
+        <plugin>
           <groupId>com.google.cloud.tools</groupId>
           <artifactId>appengine-maven-plugin</artifactId>
-          <version>2.0.0-rc1</version>
+          <version>2.0.0-SNAPSHOT</version>
           <configuration>
 
             <!-- CLOUDSDK VARIATIONS -->
@@ -33,13 +45,13 @@
 
             <!-- DEPLOYMENT VARIATIONS -->
             <!--
-            <project>APPENGINE_CONFIG</project>
+            <projectId>APPENGINE_CONFIG</project>
             <version>APPENGINE_CONFIG</version>
             -->
-            <project>GCLOUD_CONFIG</project>
+            <projectId>GCLOUD_CONFIG</projectId>
             <version>GCLOUD_CONFIG</version>
             <!--
-            <project>some-project</project>
+            <projectId>some-project</project>
             <version>1</version>
             -->
           </configuration>

@@ -3,7 +3,8 @@
   <application>single-service-projectId</application><!-- overriden in buildfiles -->
   <version>single-service-version</version><!-- overriden in buildfiles -->
   <service>single-service</service>
-  <!-- java8 options -->
+
+  <!-- java 8 options -->
   <runtime>java8</runtime>
   <threadsafe>true</threadsafe>
 
@@ -11,4 +12,7 @@
   <runtime>java11</runtime>
   -->
 
+  <system-properties>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+  </system-properties>
 </appengine-web-app>
