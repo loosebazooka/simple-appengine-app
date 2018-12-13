@@ -1,10 +1,10 @@
 buildscript {
   repositories {
-    jcenter()
     mavenLocal()
+    jcenter()
   }
   dependencies {
-    classpath "com.google.cloud.tools:appengine-gradle-plugin:2.0.0-rc1"
+    classpath "com.google.cloud.tools:appengine-gradle-plugin:2.0.0-SNAPSHOT"
   }
 }
 
@@ -16,15 +16,18 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 
+// if you change this between 8/11 make sure you update <runtime> in appengine-web.xml
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
+// sourceCompatibility = JavaVersion.VERSION_11
+// targetCompatibility = JavaVersion.VERSION_11
 
 dependencies {
   compile 'javax.servlet:javax.servlet-api:3.1.0'
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = "4.6"
+  gradleVersion = "4.10.2"
 }
 
 appengine {
@@ -34,10 +37,10 @@ appengine {
   }
   deploy {
     // version = "1"
-    // project = "1"
+    // projectId = "some-project"
     version = "GCLOUD_CONFIG"
-    project = "GCLOUD_CONFIG"
+    projectId = "GCLOUD_CONFIG"
     // version = "APPENGINE_CONFIG"
-    // project = "APPENGINE_CONFIG"
+    // projectId = "APPENGINE_CONFIG"
   }
 }

@@ -6,12 +6,15 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  <groupId>com.google.standard.demos</groupId>
+  <groupId>com.loosebazooka.test</groupId>
   <artifactId>simple-appengine-app</artifactId>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source> <!-- REQUIRED -->
-    <maven.compiler.target>1.8</maven.compiler.target> <!-- REQUIRED -->
+    <!-- if you change java version here, also make sure it is compatible with runtime in appengine-web.xml -->
+    <!--java.version>11</java.version-->
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -21,46 +24,27 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <type>jar</type>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 
   <build>
-    <!-- For hot reload of the web application when using an IDE Eclipse / IDEA -->
-    <outputDirectory>target/${project.artifactId}-${project.version}/WEB-INF/classes
-    </outputDirectory>
     <plugins>
-      <!-- Work around a performance issue with Maven and Java 7:
-  Maven has a dependency that does a getgrgid for each file.
-  This is very slow for large groups, and not cached.
-  See issue: http://jira.codehaus.org/browse/PLXCOMP-203
--->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-io</artifactId>
-            <version>2.0.5</version>
-          </dependency>
-        </dependencies>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.2</version>
       </plugin>
 
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
-        <version>2.0.0-rc1</version>
+        <version>2.0.0-SNAPSHOT</version>
         <configuration>
           <!-- CLOUDSDK VARIATIONS -->
 
@@ -78,7 +62,7 @@
           <project>APPENGINE_CONFIG</project>
           <version>APPENGINE_CONFIG</version>
           -->
-          <project>GCLOUD_CONFIG</project>
+          <projectId>GCLOUD_CONFIG</projectId>
           <version>GCLOUD_CONFIG</version>
           <!--
           <project>some-project</project>
@@ -86,17 +70,7 @@
           -->
         </configuration>
       </plugin>
-
     </plugins>
-
   </build>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-     </pluginRepository>
-  </pluginRepositories>
-
 </project>
 
