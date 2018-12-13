@@ -16,11 +16,8 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 
-// if you change this between 8/11 make sure you update <runtime> in appengine-web.xml
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
-// sourceCompatibility = JavaVersion.VERSION_11
-// targetCompatibility = JavaVersion.VERSION_11
 
 dependencies {
   compile 'javax.servlet:javax.servlet-api:3.1.0'

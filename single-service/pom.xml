@@ -10,8 +10,6 @@
   <artifactId>simple-appengine-app</artifactId>
 
   <properties>
-    <!-- if you change java version here, also make sure it is compatible with runtime in appengine-web.xml -->
-    <!--java.version>11</java.version-->
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
